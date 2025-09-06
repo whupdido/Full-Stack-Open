@@ -16,7 +16,7 @@ const DisplayCountries = ({ countries, setFilter }) => {
   useEffect(() => {
     if (countries.length === 1) {
       const country = countries[0]
-      const apikey = '40a6250bd9e2e614a01e658885416759'
+      const apikey = import.meta.env.VITE_SOME_KEY
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?lat=${country.latlng[0]}&lon=${country.latlng[1]}&units=metric&appid=${apikey}`

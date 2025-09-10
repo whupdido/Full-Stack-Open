@@ -27,6 +27,7 @@ let persons =[
     }
 ]
 app.use(express.json())
+app.use(express.static('dist'))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
 app.get('/api/persons', (request, response) => {
   response.json(persons)

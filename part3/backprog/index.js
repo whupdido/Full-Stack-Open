@@ -29,9 +29,7 @@ let persons =[
 app.use(express.json())
 app.use(express.static('dist'))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :type'))
-app.get('/api/persons', (request, response) => {
-  response.json(persons)
-})
+
 
 app.get('/info', (request, response) => {
   response.send(`<p>The Phonebook has the information of ${persons.length} people</p> 
@@ -53,7 +51,7 @@ app.get('/api/persons/:id', (request, response) => {
 
 app.delete('/api/persons/:id', (request, response) => {
   const id = request.params.id
-  persons = persons.filter((note) => note.id !== id)
+  persons = persons.filter((person) => person.id !== id)
 
   response.status(204).end()
 })

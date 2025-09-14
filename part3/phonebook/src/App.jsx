@@ -99,7 +99,7 @@ const App = () => {
     setNewNumber('')
     setErrorMessage(`Added ${newper.name}`)
     })
-    .catch(error=>console.log(error.response.data.error))
+    .catch(error=>setErrorMessage(`${error.response.data.error}`))
   }
     
   }

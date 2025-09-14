@@ -97,8 +97,9 @@ const App = () => {
     setPersons(persons.concat(response.data))
     setNewName('')
     setNewNumber('')
-    })
     setErrorMessage(`Added ${newper.name}`)
+    })
+    .catch(error=>console.log(error.response.data.error))
   }
     
   }

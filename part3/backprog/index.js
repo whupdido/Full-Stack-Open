@@ -48,7 +48,7 @@ const body = request.body
     number: body.number,
   })
 
-  Person.save().then(person => {
+  person.save().then(person => {
     response.json(person)
   })
 })

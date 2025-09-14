@@ -7,15 +7,15 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist ../backend",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "build:ui": "rm -rf dist && cd ../phonebook && npm run build && cp -r dist ../backprog",
+    "deploy:full": "npm run build:ui && git add . && git commit -m \"Deploy with UI build $(date)\" && git push",
+    "deploy:quick": "git add . && git commit -m \"Quick deploy $(date)\" && git push"
   },
   "author": "Kush",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "mongoose": "^8.18.1",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "cors": "^2.8.5"
   }
 }

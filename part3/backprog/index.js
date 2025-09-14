@@ -37,20 +37,20 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 app.post('/api/persons', (request, response)=>{
-const newper = request.body
-if(!newper.name){
-    response.status(400).json({ error: 'Name missing'})
-}
-else if(!newper.number){
-    response.status(400).json({ error: 'Number missing'})
-}
-else if(persons.some(person=>person.name == newper.name)){
-    response.status(400).json({ error: 'Name must be unique'})
-}
-else{
-newper.id= Math.floor(Math.random()*99999999)
-persons = persons.concat(newper)
-response.json(newper)}
+const body = request.body
+
+  if (!body.content) {
+    return response.status(400).json({ error: 'content missing' })
+  }
+
+  const person = new Person({
+    name: body.name,
+    number: body.number,
+  })
+
+  Person.save().then(person => {
+    response.json(person)
+  })
 })
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

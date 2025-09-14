@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const password = process.argv[2]
 
+
 const url = `mongodb+srv://kushagrawal275:${password}@cluster0.fvuyp8s.mongodb.net/phonebookApp?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery',false)

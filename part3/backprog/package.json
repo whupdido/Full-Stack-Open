@@ -9,13 +9,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf dist && cd ../phonebook && npm run build && cp -r dist ../backprog",
     "deploy:full": "npm run build:ui && git add . && git commit -m \"Deploy with UI build $(date)\" && git push",
-    "deploy:quick": "git add . && git commit -m \"Quick deploy $(date)\" && git push"
+    "deploy:quick": "git add . && git commit -m \"Quick deploy $(date)\" && git push",
+    "lint": "eslint ."
   },
   "author": "Kush",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "morgan": "^1.10.1",
-    "cors": "^2.8.5"
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0"
   }
 }

@@ -1,0 +1,18 @@
+{
+"name": "bloglist",
+"version": "1.0.0",
+"description": "Full Stack Open exercises 4.1-4.2 - Bloglist app",
+"main": "index.js",
+"scripts": {
+"start": "node index.js",
+"dev": "node --watch index.js"
+},
+"engines": {
+"node": ">=22.3.0"
+},
+"dependencies": {
+"dotenv": "^16.0.0",
+"express": "^4.18.2",
+"mongoose": "^7.6.0"
+}
+}

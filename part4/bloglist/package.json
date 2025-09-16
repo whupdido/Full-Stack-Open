@@ -1,18 +1,1 @@
-{
-"name": "bloglist",
-"version": "1.0.0",
-"description": "Full Stack Open exercises 4.1-4.2 - Bloglist app",
-"main": "index.js",
-"scripts": {
-"start": "node index.js",
-"dev": "node --watch index.js"
-},
-"engines": {
-"node": ">=22.3.0"
-},
-"dependencies": {
-"dotenv": "^16.0.0",
-"express": "^4.18.2",
-"mongoose": "^7.6.0"
-}
-}
+{"name":"bloglist","version":"1.0.0","description":"Full Stack Open exercises 4.1-4.2 - Bloglist app","main":"index.js","scripts":{"start":"node index.js","test":"node --test","dev":"node --watch index.js"},"engines":{"node":">=22.3.0"},"dependencies":{"dotenv":"^16.0.0","express":"^4.18.2","lodash":"^4.17.21","mongoose":"^7.6.0"},"devDependencies":{"@eslint/js":"^9.35.0","eslint":"^9.35.0","globals":"^16.4.0"}}

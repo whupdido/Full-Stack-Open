@@ -4,7 +4,9 @@ const app = require('./app')
 require('dotenv').config()
 
 
+// eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3003
+// eslint-disable-next-line no-undef
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/bloglist'
 
 

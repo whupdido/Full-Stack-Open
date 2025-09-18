@@ -67,6 +67,61 @@ test('correct number of blogs are returned', async () => {
   assert.strictEqual(response.body.length, initialBlogs.length)
 })
 
+test('unique identifier property of the blog posts is named id', async () => {
+  const response = await api.get('/api/blogs')
+  const blogs = response.body
+  blogs.forEach(blog => {
+    assert(blog.id)
+  })
+})
+
+test('a valid blog can be added', async () => {
+  const newBlog = {
+    title: "New Blog",
+    author: "Kush Agrawal",
+    url: "https://example.com/newblog",
+    likes: 15,
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const response = await api.get('/api/blogs')
+  const titles = response.body.map(b => b.title)
+  assert.strictEqual(titles.length, initialBlogs.length + 1)  
+  assert(titles.includes('New Blog'))
+})
+
+test('if likes property is missing, it defaults to 0', async () => {
+  const newBlog = {
+    title: "Blog without likes",   
+    author: "Author Name",
+    url: "https://example.com/blogwithoutlikes"
+  }
+
+  const response = await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  assert.strictEqual(response.body.likes, 0)
+})
+
+test('blog without title and url is not added', async () => {
+  const newBlog = { author: "Author Name", likes: 5 }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(400)
+  const response = await api.get('/api/blogs')
+  assert.strictEqual(response.body.length, initialBlogs.length)
+})
+
 
 after(async () => {
   await mongoose.connection.close()
